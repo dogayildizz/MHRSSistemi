@@ -49,6 +49,7 @@
             btnGec.TabIndex = 0;
             btnGec.Text = "Geç";
             btnGec.UseVisualStyleBackColor = false;
+            btnGec.Click += btnGec_Click;
             // 
             // txtBolumAdi
             // 

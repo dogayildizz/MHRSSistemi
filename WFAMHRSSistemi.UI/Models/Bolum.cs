@@ -12,7 +12,7 @@ namespace WFAMHRSSistemi.UI.Models
         public string Aciklama { get; set; }
         public override string ToString()
         {
-            return Adi+" : "+Aciklama;
+            return Adi + " : " + Aciklama;
         }
 
     }
