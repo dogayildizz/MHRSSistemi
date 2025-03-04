@@ -12,6 +12,10 @@ namespace WFAMHRSSistemi.UI.Models
         public string TelNo { get; set; }
         public Bolum Bolum { get; set; }  //navigation property
 
+        public override string ToString()
+        {
+            return AdSoyad;
+        }
 
     }
 }

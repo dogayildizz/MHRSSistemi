@@ -5,7 +5,7 @@ namespace WFAMHRSSistemi.UI
     public partial class Form1 : Form
     {
 
-        List<string> bolumlerListesi = new List<string>();   //
+        List<Bolum> bolumlerListesi = new List<Bolum>();   
         public Form1()
         {
            InitializeComponent();
@@ -24,7 +24,7 @@ namespace WFAMHRSSistemi.UI
                 Bolum bolum = new Bolum();
                 bolum.Adi = txtBolumAdi.Text;
                 bolum.Aciklama = txtBolumAciklamasi.Text;
-                bolumlerListesi.Add(bolum.Adi);          //
+                bolumlerListesi.Add(bolum);          
                 lstBolumler.Items.Add(bolum);
                 MessageBox.Show("Bölüm baþarýyla eklenmiþtir.");
                 Temizle();
@@ -45,8 +45,8 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Lütfen bölüm seçiniz!!!");
                 return;
             }
-            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;  //
-            bolumlerListesi.Remove(seciliBolum.Adi);              //
+            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;  
+            bolumlerListesi.Remove(seciliBolum);              
 
             lstBolumler.Items.Remove(lstBolumler.SelectedItem);
             MessageBox.Show("Bölüm baþarýyla silindi.");
@@ -59,7 +59,7 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Güncellemek istediðiniz bölümü seçiniz.");
                 return;
             }
-            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;
+            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;   
 
             seciliBolum.Adi = txtBolumAdi.Text;
             seciliBolum.Aciklama = txtBolumAciklamasi.Text;
@@ -70,7 +70,7 @@ namespace WFAMHRSSistemi.UI
 
         }
 
-        private void btnGec_Click(object sender, EventArgs e) //
+        private void btnGec_Click(object sender, EventArgs e) 
         {
             Form2 form2 = new Form2();
             form2.Bolumler = bolumlerListesi;
