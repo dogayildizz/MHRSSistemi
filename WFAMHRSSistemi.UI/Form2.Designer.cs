@@ -123,6 +123,7 @@
             btnGec.TabIndex = 9;
             btnGec.Text = "Geç";
             btnGec.UseVisualStyleBackColor = false;
+            btnGec.Click += btnGec_Click;
             // 
             // label3
             // 
@@ -130,9 +131,9 @@
             label3.Font = new Font("Times New Roman", 12F);
             label3.Location = new Point(79, 131);
             label3.Name = "label3";
-            label3.Size = new Size(108, 22);
+            label3.Size = new Size(137, 22);
             label3.TabIndex = 12;
-            label3.Text = "Bölüm Seç :";
+            label3.Text = "Bölüm Seçiniz :";
             // 
             // lstDoktorlar
             // 

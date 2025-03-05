@@ -12,5 +12,14 @@ namespace WFAMHRSSistemi.UI.Models
         public string Sikayet { get; set; }
         public Doktor Doktor { get; set; }
 
+
+
+        //override tostring tab
+
+        public override string ToString()
+        {
+            return AdSoyad;
+        }
+
     }
 }

@@ -30,7 +30,7 @@ namespace WFAMHRSSistemi.UI
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(txtDoktorAdiSoyadi.Text) || String.IsNullOrWhiteSpace(mtxtDoktorTelNo.Text))
+            if (string.IsNullOrWhiteSpace(txtDoktorAdiSoyadi.Text) || string.IsNullOrWhiteSpace(mtxtDoktorTelNo.Text))
             {
                 MessageBox.Show("Doktor adı ve telefon numarası boş geçilemez.");
                 return;
@@ -83,12 +83,24 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Lütfen doktorlar seçiniz!!!");
                 return;
             }
-            Doktor seciliDoktor = (Doktor)lstDoktorlar.SelectedItem;    
+            Doktor seciliDoktor = (Doktor)lstDoktorlar.SelectedItem;
 
-                        
+
 
             lstDoktorlar.Items.Remove(lstDoktorlar.SelectedItem);
             MessageBox.Show("Doktor başarıyla silindi.");
+        }
+
+        private void btnGec_Click(object sender, EventArgs e)
+        {
+            Doktor[] doktorlar = new Doktor[0];
+            foreach (Doktor item in lstDoktorlar.Items)
+            {
+                Array.Resize(ref doktorlar, doktorlar.Length+1);
+                doktorlar[doktorlar.Length - 1] = item;
+            }
+            Form3 form3 = new Form3(doktorlar);
+            form3.ShowDialog();
         }
     }
 }
