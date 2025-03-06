@@ -17,7 +17,7 @@ namespace WFAMHRSSistemi.UI
         {
             InitializeComponent();
         }
-        public Form3(Doktor[] doktorlarDizisi) : this()
+        public Form3(Doktor[] doktorlarDizisi) : this()   //this() , önce parametre almayan constructor ı çalıştır sonra burayı çalıştır anlamına geliyor.
         {
             foreach (Doktor item in doktorlarDizisi)
             {
@@ -32,7 +32,7 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Hiçbir alan boş geçilemez!");
                 return;
             }
-            if (dtpTarih.Value < DateTime.Today)
+            if (dtpTarih.Value < DateTime.Today)  //dtpTarih.Value kullanıcının seçtiği tarihi döndürür.
             {
                 MessageBox.Show("Geçmiş tarihe randevu alamazınız!");
             }
@@ -60,10 +60,10 @@ namespace WFAMHRSSistemi.UI
         private void btnZRaporu_Click(object sender, EventArgs e)
         {
             Randevu[] randevular = new Randevu[lstRandevular.Items.Count];
-            lstRandevular.Items.CopyTo(randevular, 0);
+            lstRandevular.Items.CopyTo(randevular, 0);  //lstRandevular ın itemlerini, randevular dizisine 0. indeksten başlayarak kopyala.
 
             Form4 form4 = new Form4(randevular);
-            form4.Show();
+            form4.ShowDialog();
         }
     }
 }

@@ -150,7 +150,7 @@
             Controls.Add(btnGuncelle);
             Controls.Add(btnGec);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Bölüm";
             ResumeLayout(false);
             PerformLayout();
         }

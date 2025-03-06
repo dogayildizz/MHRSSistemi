@@ -54,6 +54,7 @@ namespace WFAMHRSSistemi.UI
 
                 throw;
             }
+            Temizle();
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Güncellemek istediğiniz bölümü seçiniz.");
                 return;
             }
-            Doktor seciliDoktor = (Doktor)lstDoktorlar.SelectedItem;  //lstDoktorlar.SelectedItem as Doktor;    da yazabilirdik.
+            Doktor seciliDoktor = lstDoktorlar.SelectedItem as Doktor;  //(Doktor)lstDoktorlar.SelectedItem;  da yazabilirdik.Ama hata fırlatabilir. as ile cast yapmak daha güvenilir bir yol. 
 
             seciliDoktor.AdSoyad = txtDoktorAdiSoyadi.Text;
             seciliDoktor.TelNo = mtxtDoktorTelNo.Text;
@@ -83,7 +84,7 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Lütfen doktorlar seçiniz!!!");
                 return;
             }
-            Doktor seciliDoktor = (Doktor)lstDoktorlar.SelectedItem;
+            Doktor seciliDoktor =lstDoktorlar.SelectedItem as Doktor;
 
 
 
@@ -93,9 +94,11 @@ namespace WFAMHRSSistemi.UI
 
         private void btnGec_Click(object sender, EventArgs e)
         {
-            Doktor[] doktorlar = new Doktor[0];
+            // List ile de aktarım yapabilirdik. Bu da farklı bir yol. Ama genel olarak list ile aktarım yapmak daha güzel bir yol.Çünkü eleman ekleme silme daha kolay.
+            Doktor[] doktorlar = new Doktor[0];                
             foreach (Doktor item in lstDoktorlar.Items)
             {
+                //Her eleman eklemesi yaptığında yeniden bir dizi oluşturuyor. Performans açısından kötü.
                 Array.Resize(ref doktorlar, doktorlar.Length+1);
                 doktorlar[doktorlar.Length - 1] = item;
             }

@@ -47,6 +47,7 @@
             cmbBolumler.Location = new Point(253, 129);
             cmbBolumler.Name = "cmbBolumler";
             cmbBolumler.Size = new Size(388, 28);
+            cmbBolumler.Sorted = true;
             cmbBolumler.TabIndex = 5;
             // 
             // label2
@@ -171,7 +172,7 @@
             Controls.Add(btnGec);
             Controls.Add(cmbBolumler);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Doktor";
             Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();

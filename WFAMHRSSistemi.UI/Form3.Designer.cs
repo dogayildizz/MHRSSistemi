@@ -116,6 +116,7 @@
             cmbDoktorlar.Location = new Point(242, 124);
             cmbDoktorlar.Name = "cmbDoktorlar";
             cmbDoktorlar.Size = new Size(483, 30);
+            cmbDoktorlar.Sorted = true;
             cmbDoktorlar.TabIndex = 5;
             // 
             // label4
@@ -167,7 +168,7 @@
             Controls.Add(btnRandevuOlustur);
             Controls.Add(lstRandevular);
             Name = "Form3";
-            Text = "Form3";
+            Text = "Randevu";
             ResumeLayout(false);
             PerformLayout();
         }

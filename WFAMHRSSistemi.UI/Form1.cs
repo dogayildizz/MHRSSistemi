@@ -14,7 +14,7 @@ namespace WFAMHRSSistemi.UI
         private void btnEkle_Click(object sender, EventArgs e)
         {
 
-            if (String.IsNullOrWhiteSpace(txtBolumAciklamasi.Text) || String.IsNullOrWhiteSpace(txtBolumAdi.Text))
+            if (string.IsNullOrWhiteSpace(txtBolumAciklamasi.Text) || string.IsNullOrWhiteSpace(txtBolumAdi.Text))
             {
                 MessageBox.Show("Bölüm adý ve bölüm açýklamasý boþ geçilemez.");
                 return;
@@ -35,7 +35,7 @@ namespace WFAMHRSSistemi.UI
        }
         private void Temizle()
         {
-            txtBolumAciklamasi.Text = txtBolumAdi.Text = String.Empty;
+            txtBolumAciklamasi.Text = txtBolumAdi.Text = string.Empty;
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -45,9 +45,7 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Lütfen bölüm seçiniz!!!");
                 return;
             }
-            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;  
-            bolumlerListesi.Remove(seciliBolum);              
-
+            bolumlerListesi.Remove((Bolum)lstBolumler.SelectedItem);              
             lstBolumler.Items.Remove(lstBolumler.SelectedItem);
             MessageBox.Show("Bölüm baþarýyla silindi.");
         }
@@ -59,13 +57,15 @@ namespace WFAMHRSSistemi.UI
                 MessageBox.Show("Güncellemek istediðiniz bölümü seçiniz.");
                 return;
             }
-            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;   
+            Bolum seciliBolum = (Bolum)lstBolumler.SelectedItem;
+
+            txtBolumAdi.Text = seciliBolum.Adi;
+            txtBolumAciklamasi.Text = seciliBolum.Aciklama;
 
             seciliBolum.Adi = txtBolumAdi.Text;
             seciliBolum.Aciklama = txtBolumAciklamasi.Text;
 
-            int index = lstBolumler.SelectedIndex;
-            lstBolumler.Items[index] = seciliBolum;
+            lstBolumler.Items[lstBolumler.SelectedIndex] = seciliBolum;
             Temizle();
 
         }

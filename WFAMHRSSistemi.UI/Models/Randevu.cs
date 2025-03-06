@@ -13,7 +13,7 @@ namespace WFAMHRSSistemi.UI.Models
 
         public override string ToString()
         {
-            return Hasta +" "+Tarih.ToShortDateString;
+            return Hasta +" "+Tarih.ToShortDateString();
         }
     }
 }
