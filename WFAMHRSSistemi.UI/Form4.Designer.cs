@@ -71,6 +71,7 @@
             btnDokumanOlustur.TabIndex = 2;
             btnDokumanOlustur.Text = "Döküman Oluştur";
             btnDokumanOlustur.UseVisualStyleBackColor = false;
+            btnDokumanOlustur.Click += btnDokumanOlustur_Click;
             // 
             // Form4
             // 

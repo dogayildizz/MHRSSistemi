@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,6 +75,55 @@ namespace WFAMHRSSistemi.UI
         private void dtpBitis_ValueChanged(object sender, EventArgs e)
         {
             ListeyiGuncelle(dtpBaslangic.Value.Date, dtpBitis.Value.Date);
+        }
+
+        private void btnDokumanOlustur_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime baslangicTarihi = dtpBaslangic.Value.Date;
+                DateTime bitisTarihi = dtpBitis.Value.Date;
+                ListeyiGuncelle(baslangicTarihi,bitisTarihi);
+
+                using(var workbook = new XLWorkbook())
+                {
+                    var workSheet = workbook.AddWorksheet("Z Raporu");
+
+                    workSheet.Cell(1, 1).Value = "Hasta Adı Soyadı";
+                    workSheet.Cell(1, 2).Value = "Bölümü";
+                    workSheet.Cell(1, 3).Value = "Doktor";
+                    workSheet.Cell(1, 4).Value = "Şikayet";
+                    workSheet.Cell(1, 5).Value = "Tarih";
+
+                    int satir = 2;
+                    foreach (ListViewItem item in lvZRaporu.Items)
+                    {
+                        workSheet.Cell(satir,1).Value = item.SubItems[0].Text;
+                        workSheet.Cell(satir,2).Value = item.SubItems[1].Text;
+                        workSheet.Cell(satir,3).Value = item.SubItems[2].Text;
+                        workSheet.Cell(satir,4).Value = item.SubItems[3].Text;
+                        workSheet.Cell(satir,5).Value = item.SubItems[4].Text;
+                        satir++;
+                    }
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "Excel Files|*xlsx";
+                        saveFileDialog.Title = "Excel Dosyasını Kaydet";
+                        saveFileDialog.FileName = "ZRaporu.xlsx";
+
+                        if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = saveFileDialog.FileName;
+                            workbook.SaveAs(filePath);
+                            MessageBox.Show("Excel başarıyla oluşturuldu.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
