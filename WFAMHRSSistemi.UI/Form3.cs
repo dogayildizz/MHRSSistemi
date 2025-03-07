@@ -16,6 +16,8 @@ namespace WFAMHRSSistemi.UI
         public Form3()
         {
             InitializeComponent();
+            dtpTarih.MinDate = DateTime.Now;
+
         }
         public Form3(Doktor[] doktorlarDizisi) : this()   //this() , önce parametre almayan constructor ı çalıştır sonra burayı çalıştır anlamına geliyor.
         {
@@ -31,10 +33,6 @@ namespace WFAMHRSSistemi.UI
             {
                 MessageBox.Show("Hiçbir alan boş geçilemez!");
                 return;
-            }
-            if (dtpTarih.Value < DateTime.Today)  //dtpTarih.Value kullanıcının seçtiği tarihi döndürür.
-            {
-                MessageBox.Show("Geçmiş tarihe randevu alamazınız!");
             }
             Hasta hasta = new Hasta()
             {
@@ -55,6 +53,8 @@ namespace WFAMHRSSistemi.UI
         private void Temizle()
         {
             txtHastaAdiSoyadi.Text = txtSikayet.Text = string.Empty;
+            cmbDoktorlar.SelectedItem = null;
+            dtpTarih.Value = DateTime.Now;
         }
 
         private void btnZRaporu_Click(object sender, EventArgs e)

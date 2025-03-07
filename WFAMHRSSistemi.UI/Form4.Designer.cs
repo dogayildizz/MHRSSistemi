@@ -39,7 +39,7 @@
             lvZRaporu.Font = new Font("Times New Roman", 10.8F);
             lvZRaporu.Location = new Point(49, 134);
             lvZRaporu.Name = "lvZRaporu";
-            lvZRaporu.Size = new Size(698, 303);
+            lvZRaporu.Size = new Size(775, 303);
             lvZRaporu.TabIndex = 0;
             lvZRaporu.UseCompatibleStateImageBehavior = false;
             // 
@@ -65,7 +65,7 @@
             // 
             btnDokumanOlustur.BackColor = SystemColors.ButtonFace;
             btnDokumanOlustur.Font = new Font("Times New Roman", 10.8F);
-            btnDokumanOlustur.Location = new Point(570, 466);
+            btnDokumanOlustur.Location = new Point(647, 464);
             btnDokumanOlustur.Name = "btnDokumanOlustur";
             btnDokumanOlustur.Size = new Size(177, 66);
             btnDokumanOlustur.TabIndex = 2;
@@ -78,7 +78,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(813, 559);
+            ClientSize = new Size(864, 559);
             Controls.Add(btnDokumanOlustur);
             Controls.Add(dtpBitis);
             Controls.Add(dtpBaslangic);

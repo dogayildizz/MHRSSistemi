@@ -75,6 +75,7 @@ namespace WFAMHRSSistemi.UI
         private void Temizle()
         {
             txtDoktorAdiSoyadi.Text = mtxtDoktorTelNo.Text = String.Empty;
+            cmbBolumler.SelectedItem = null;
         }
 
         private void btnSil_Click(object sender, EventArgs e)
